@@ -12,9 +12,9 @@ class Tenant extends Model
         'status' => TenantStatusEnum::class
     ];
 
-    public function businessType()
+    public function Business()
     {
-        return $this->belongsTo(BusinessType::class);
+        return $this->belongsTo(Business::class);
     }
 
     public function theme()

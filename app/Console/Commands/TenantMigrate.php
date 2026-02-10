@@ -35,7 +35,7 @@ class TenantMigrate extends Command
                 'database.connections.tenant.username' => $tenant->db_username,
                 'database.connections.tenant.password' => $tenant->db_password,
             ]);
-            $business_name = strtolower($tenant->businessType->name);
+            $business_name = strtolower($tenant->Business->name);
 
             DB::purge('tenant');
 

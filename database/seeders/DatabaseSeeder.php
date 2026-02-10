@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(UserSeeder::class);
-        $this->call(BusinessTypeSeeder::class);
+        $this->call(BusinessSeeder::class);
         $this->call(ThemeSeeder::class);
         $this->call(TenantSeeder::class);
     }

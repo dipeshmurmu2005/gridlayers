@@ -5,7 +5,7 @@ namespace App\Models;
 use Attribute;
 use Illuminate\Database\Eloquent\Model;
 
-class BusinessType extends Model
+class Business extends Model
 {
     protected $guarded = [];
 

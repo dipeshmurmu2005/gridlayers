@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Filament\Resources\BusinessTypes\Schemas;
+namespace App\Filament\Resources\Businesses\Schemas;
 
 use Filament\Schemas\Schema;
 
-class BusinessTypeForm
+class BusinessForm
 {
     public static function configure(Schema $schema): Schema
     {

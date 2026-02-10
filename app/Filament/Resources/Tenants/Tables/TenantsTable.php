@@ -16,7 +16,7 @@ class TenantsTable
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('domain'),
-                TextColumn::make('businessType.name'),
+                TextColumn::make('Business.name'),
                 TextColumn::make('theme.name'),
                 TextColumn::make('status')->badge()
             ])

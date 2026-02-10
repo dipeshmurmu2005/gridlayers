@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\BusinessType;
+use App\Models\Business;
 use Illuminate\Database\Seeder;
 
-class BusinessTypeSeeder extends Seeder
+class BusinessSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -25,7 +25,7 @@ class BusinessTypeSeeder extends Seeder
             ]
         ];
         foreach ($business_types as $business_type) {
-            BusinessType::create($business_type);
+            Business::create($business_type);
         }
     }
 }

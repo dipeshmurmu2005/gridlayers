@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Models\BusinessType;
+use App\Models\Business;
 use Illuminate\Http\Request;
 use Livewire\Component;
 
@@ -18,7 +18,7 @@ class Onboarding extends Component
     {
         $this->plan = $request->get('plan');
         $this->business_type = $request->get('business_type');
-        $this->business_types = BusinessType::latest()->pluck('name', 'id');
+        $this->business_types = Business::latest()->pluck('name', 'id');
     }
     public function render()
     {

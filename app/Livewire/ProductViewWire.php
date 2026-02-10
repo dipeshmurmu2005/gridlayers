@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Models\BusinessType;
+use App\Models\Business;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 
@@ -15,7 +15,7 @@ class ProductViewWire extends Component
 
     public function mount()
     {
-        $this->business = BusinessType::where('slug', $this->slug)->first();
+        $this->business = Business::where('slug', $this->slug)->first();
     }
 
     public function render()

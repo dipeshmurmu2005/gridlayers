@@ -8,7 +8,7 @@ class RouteResolver
     {
         $tenant = app('tenant');
         return app_path(
-            "Business/{$tenant->businessType->name}/routes.php"
+            "Business/{$tenant->Business->name}/routes.php"
         );
     }
 }

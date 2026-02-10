@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Models\BusinessType;
+use App\Models\Business;
 use Livewire\Component;
 
 class ProductsSection extends Component
@@ -11,7 +11,7 @@ class ProductsSection extends Component
 
     public function mount()
     {
-        $this->business_types = BusinessType::latest()->get();
+        $this->business_types = Business::latest()->get();
     }
 
     public function render()
