@@ -7,14 +7,16 @@
                 </div>
                 <h2 class="font-bold text-2xl">Welcome Back</h2>
                 <div>
-                    <button class="btn bg-black/4 w-80 h-12 rounded-2xl">
-                        <div class="h-5 w-fit">
-                            <img class="h-full w-full object-contain"
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/250px-Google_%22G%22_logo.svg.png"
-                                alt="">
-                        </div>
-                        <span>Continue with Google</span>
-                    </button>
+                    <a href="{{ route('platform.social.redirect') }}">
+                        <button class="btn bg-black/4 w-80 h-12 rounded-2xl">
+                            <div class="h-5 w-fit">
+                                <img class="h-full w-full object-contain"
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/250px-Google_%22G%22_logo.svg.png"
+                                    alt="">
+                            </div>
+                            <span>Continue with Google</span>
+                        </button>
+                    </a>
                 </div>
                 <div class="divider text-sm">Or</div>
                 <div class="grid gap-3">
