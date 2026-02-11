@@ -23,7 +23,10 @@ class OnboardingRequest extends FormRequest
     {
         return [
             'business_name' => 'required|string|max:255',
-            'business_type' => 'integer|in:business_types,id',
+            'business_type' => '|required|integer|in:business_types,id',
+            'city' => 'required|string',
+            'phone' => 'required|string',
+            'email' => 'required|email'
         ];
     }
 }
