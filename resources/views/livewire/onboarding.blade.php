@@ -278,14 +278,24 @@
                             </div>
                         </div>
                         <div class="grid grid-cols-2 gap-5">
-                            <div class="bg-linear-to-br from-[#BF40BF]/4 to-primary/4 p-5 rounded-xl space-y-2">
+                            <label for="billing_cycle_monthly"
+                                class="bg-linear-to-br from-[#BF40BF]/4 to-primary/4 p-5 rounded-xl space-y-2 cursor-pointer">
+                                <div class="flex justify-end">
+                                    <input type="radio" id="billing_cycle_monthly" value="monthly" name="radio-4"
+                                        wire:model="billingCycle" class="radio radio-primary radio-sm" />
+                                </div>
                                 <div>Rs. <span class="text-4xl font-bold">499</span> /mo</div>
                                 <p class="text-sm text-black/60">This is how people will find your business online.</p>
-                            </div>
-                            <div class="bg-linear-to-br from-[#BF40BF]/4 to-primary/4 p-5 rounded-xl space-y-2">
-                                <div>Rs. <span class="text-4xl font-bold">1999</span> /year</div>
+                            </label>
+                            <label for="billing_cycle_yearly"
+                                class="bg-linear-to-br from-[#BF40BF]/4 to-primary/4 p-5 rounded-xl space-y-2 cursor-pointer">
+                                <div class="flex justify-end">
+                                    <input type="radio" id="billing_cycle_yearly" value="yearly" name="radio-4"
+                                        wire:model="billingCycle" class="radio radio-primary radio-sm" />
+                                </div>
+                                <div>Rs. <span class="text-4xl font-bold">6000</span> /year</div>
                                 <p class="text-sm text-black/60">This is how people will find your business online.</p>
-                            </div>
+                            </label>
                         </div>
                         <div class="bg-white p-5 shadow-xs rounded-xl space-y-2">
                             <div class="flex justify-between">
@@ -298,8 +308,8 @@
                             </div>
                         </div>
                         <div class="flex justify-center items-center gap-2">
-                            <button class="btn btn-primary h-12">Checkout</button>
-                            <button class="btn btn-primary h-12 btn-outline">Start Free Trial</button>
+                            <button class="btn btn-primary h-12" wire:click="onboard()">Checkout</button>
+                            <button class="btn bg-black/4 h-12" wire:click="onboard()">Start Free Trial</button>
                         </div>
                     </div>
                 </div>

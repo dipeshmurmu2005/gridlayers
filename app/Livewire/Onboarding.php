@@ -2,7 +2,10 @@
 
 namespace App\Livewire;
 
+use App\Actions\Platform\OnboardingAction;
+use App\Enums\BillingCycleEnum;
 use App\Models\Business;
+use App\Models\OnboardData;
 use App\Models\Tenant;
 use App\Models\Theme;
 use Illuminate\Http\Request;
@@ -47,6 +50,8 @@ class Onboarding extends Component
     // fourth step
     public $plan;
 
+    public $billingCycle;
+
     protected $firstStepRules = [
         'business_name' => 'required|string',
         'business' => 'required|string|exists:businesses,slug',
@@ -62,9 +67,9 @@ class Onboarding extends Component
 
     public function mount(Request $request)
     {
+        $this->billingCycle = BillingCycleEnum::Monthly->value;
         if (session('onboarding_data')) {
             $this->setSessionDatas();
-            $this->activeStep = 4;
         } else {
             $validated = $request->validate([
                 'business' => 'required|string',
@@ -123,6 +128,7 @@ class Onboarding extends Component
                 'location' => $this->location,
                 'phone' => $this->phone,
                 'email' => $this->email,
+                'plan' => $this->plan,
             ]
         ]);
     }
@@ -149,16 +155,60 @@ class Onboarding extends Component
 
     public function switchToCheckout()
     {
+        $onboardDataId = OnboardData::where('user_id', auth()->user()->id)->first()->id;
+        if ($onboardDataId) {
+            $this->validate([
+                'fullsubdomain' => 'nullable|required_without:custom_domain|unique:tenants,domain|unique:onboard_data,domain,' . $onboardDataId,
+            ]);
+        }
         $this->validate([
             'fullsubdomain' => 'nullable|required_without:custom_domain|unique:tenants,domain',
             'custom_domain' => 'nullable|required_without:subdomain',
         ]);
+
         $this->activeStep = 4;
     }
 
     public function onboard()
     {
-        dd('hello');
+        $this->validate($this->firstStepRules);
+        $this->validate($this->secondStepRules);
+
+        $onboardDataId = OnboardData::where('user_id', auth()->user()->id)->first()->id;
+
+        if ($onboardDataId) {
+            $this->validate([
+                'fullsubdomain' => 'nullable|required_without:custom_domain|unique:tenants,domain|unique:onboard_data,domain,' . $onboardDataId,
+            ]);
+        }
+
+        $this->validate([
+            'billingCycle' => 'required|in:monthly,yearly',
+            'fullsubdomain' => 'nullable|required_without:custom_domain|unique:tenants,domain',
+            'custom_domain' => 'nullable|required_without:subdomain',
+        ]);
+        $onboardingData = session('onboarding_data');
+        $newOnboardData = OnboardData::updateOrCreate([
+            'user_id' => auth()->user()->id,
+        ], [
+            'user_id' => auth()->user()->id,
+            'business_name' => $onboardingData['step_one']['business_name'],
+            'business_slug' => $onboardingData['step_one']['business'],
+            'location' => $onboardingData['step_one']['location'],
+            'phone' => $onboardingData['step_one']['phone'],
+            'contact_email' => $onboardingData['step_one']['email'],
+            'theme_slug' => $onboardingData['step_two']['theme'],
+            'plan_slug' => $onboardingData['step_one']['plan'],
+            'billing_cycle'  => $this->billingCycle,
+            'domain' => $this->fullsubdomain
+        ]);
+    }
+
+    public function startFreeTrial()
+    {
+        $this->onboard();
+        $onboardAction = new OnboardingAction();
+        $onboardAction->OnboardNewTenant();
     }
 
     public function updatedSubdomain()
