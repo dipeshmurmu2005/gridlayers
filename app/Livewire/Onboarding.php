@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Business;
+use App\Models\Theme;
 use Illuminate\Http\Request;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
@@ -11,12 +12,16 @@ class Onboarding extends Component
 {
     public $businesses;
 
+    public $selectedBusiness;
+
     public $business;
 
     public $plan;
 
+    public $themes;
+
     #[Locked]
-    public $activeStep = 1;
+    public $activeStep = null;
 
     // firststep
     public $business_name;
@@ -27,6 +32,12 @@ class Onboarding extends Component
 
     public $email;
 
+    public $theme;
+
+    // third step
+    public $sub_domain;
+
+    public $custom_domain;
 
     protected $firstStepRules = [
         'business_name' => 'required|string',
@@ -36,19 +47,37 @@ class Onboarding extends Component
         'email' => 'required|email',
     ];
 
+    protected $secondStepRules = [
+        'theme' => 'required|string|exists:themes,slug'
+    ];
+
+    protected $thirdSteps = [
+        'subdomain'     => 'nullable|required_without:custom_domain|prohibited_with:custom_domain',
+        'custom_domain' => 'nullable|required_without:subdomain|prohibited_with:subdomain',
+    ];
+
     public function mount(Request $request)
     {
-        $validated = $request->validate([
-            'business' => 'required|string',
-            'plan' => 'required|string',
-        ]);
-        $business = Business::where('slug', $validated['business'])->first();
-        $this->business = $validated['business'];
-        $this->businesses = Business::latest()->pluck('name', 'slug');
-        $this->plan = $request->get('plan');
-        if (!($business && $this->plan)) {
+        if ($request->get('business') && $request->get('plan')) {
+            $validated = $request->validate([
+                'business' => 'required|string',
+                'plan' => 'required|string',
+            ]);
+            if ($validated['business'] && $validated['plan']) {
+                $business = Business::where('slug', $validated['business'])->first();
+                $this->business = $validated['business'];
+                $this->businesses = Business::latest()->pluck('name', 'slug');
+                $this->plan = $request->get('plan');
+                if (!($business && $this->plan)) {
+                    abort(404);
+                }
+            } else {
+                abort(404);
+            }
+        } else {
             abort(404);
         }
+        $this->activeStep = 1;
     }
     public function render()
     {
@@ -58,7 +87,23 @@ class Onboarding extends Component
     public function switchToTheme()
     {
         $this->validate($this->firstStepRules);
+        $this->selectedBusiness = Business::where('slug', $this->business)->first();
+        $this->themes = $this->selectedBusiness->themes;
         $this->activeStep = 2;
+    }
+
+    public function selectTheme($slug)
+    {
+        $this->theme = $slug;
+    }
+
+    public function switchToWebAddress()
+    {
+        $this->validate($this->secondStepRules);
+        $theme = Theme::where('slug', $this->theme)->where('business_type_id', $this->selectedBusiness->id)->first();
+        if ($theme) {
+            $this->activeStep = 3;
+        }
     }
 
     public function onboard()

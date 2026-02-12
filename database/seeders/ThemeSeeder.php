@@ -18,21 +18,25 @@ class ThemeSeeder extends Seeder
             [
                 'business_type_id' => 1,
                 'name' => 'Modern',
+                'slug' => 'cafe-modern',
                 'status' => ThemeStatusEnum::ACTIVE
             ],
             [
                 'business_type_id' => 1,
                 'name' => 'Classic',
+                'slug' => 'cafe-classic',
                 'status' => ThemeStatusEnum::ACTIVE
             ],
             [
                 'business_type_id' => 2,
                 'name' => 'Classic',
+                'slug' => 'institute-classic',
                 'status' => ThemeStatusEnum::ACTIVE
             ],
             [
                 'business_type_id' => 2,
                 'name' => 'Modern',
+                'slug' => 'institute-modern',
                 'status' => ThemeStatusEnum::ACTIVE
             ]
         ];

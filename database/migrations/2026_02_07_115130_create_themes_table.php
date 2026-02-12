@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('business_type_id');
             $table->string('name');
+            $table->string('slug');
             $table->string('description')->nullable();
             $table->string('status');
             $table->timestamps();
