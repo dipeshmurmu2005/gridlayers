@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('domain');
             $table->string('status');
-            $table->unsignedBigInteger('business_type_id');
+            $table->unsignedBigInteger('business_id');
             $table->unsignedBigInteger('theme_id');
 
             $table->string('db_name');

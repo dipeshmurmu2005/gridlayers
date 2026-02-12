@@ -15,12 +15,12 @@ class Business extends Model
 
     public function themes()
     {
-        return $this->hasMany(Theme::class, 'business_type_id');
+        return $this->hasMany(Theme::class, 'business_id');
     }
 
     public function tenants()
     {
-        return $this->hasMany(Tenant::class, 'business_type_id');
+        return $this->hasMany(Tenant::class, 'business_id');
     }
 
     protected function getTotalTenantsAttribute()

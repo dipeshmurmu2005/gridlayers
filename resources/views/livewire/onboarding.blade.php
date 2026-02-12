@@ -187,13 +187,25 @@
                             <div>
                                 <fieldset class="fieldset">
                                     <legend class="fieldset-legend">YOUR URL</legend>
-                                    <label class="input">
-                                        <input type="url" placeholder="my-business" wire:model="subdomain" />
-                                        <div class="border-l pl-2 font-bold border-black/10">.ongridlayers.com</div>
+                                    <label
+                                        class="input {{ $errors->has('fullsubdomain') ? 'border-error' : '' }} {{ $this->subdomain ? ($this->subdomaintaken ? 'border-error' : 'border-success') : '' }}">
+                                        <input type="url" placeholder="my-business"
+                                            wire:model.live="subdomain" />
+                                        <div class="border-l pl-2 font-bold border-black/10 flex gap-1 items-center">
+                                            .ongridlayers.com
+                                            @if ($this->subdomain)
+                                                @if (!$this->subdomaintaken)
+                                                    <x-heroicon-m-check-circle class="text-success h-4 w-4" />
+                                                @endif
+                                            @endif
+                                        </div>
                                     </label>
-                                    @error('subdomain')
-                                        <p class="label text-error">{{ $message }}</p>
-                                    @enderror
+                                    @if ($this->subdomain)
+                                        @if ($this->subdomaintaken)
+                                            <p class="label text-error text-wrap">subdomain has already been taken type
+                                                new</p>
+                                        @endif
+                                    @endif
                                 </fieldset>
                             </div>
                         </div>
@@ -215,7 +227,7 @@
                             <div class="flex gap-2 items-end">
                                 <fieldset class="fieldset pb-0">
                                     <legend class="fieldset-legend">YOUR URL</legend>
-                                    <input type="text" class="input" wire:model="custom_domain"
+                                    <input type="text" class="input" disabled wire:model="custom_domain"
                                         placeholder="example.com" />
                                 </fieldset>
                                 <div>
