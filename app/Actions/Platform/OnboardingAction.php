@@ -38,6 +38,7 @@ class OnboardingAction
     {
         $this->tenant = Tenant::create([
             'name' => $this->onboardData->business_name,
+            'user_id' => auth()->user()->id,
             'domain' => $this->onboardData->domain,
             'status' => TenantStatusEnum::ACTIVE,
             'business_id' => $this->business->id,

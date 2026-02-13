@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('tenants', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('username')->unique();
             $table->string('password');
             $table->string('name');

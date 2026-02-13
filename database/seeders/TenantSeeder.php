@@ -18,6 +18,7 @@ class TenantSeeder extends Seeder
         $tenants = [
             [
                 'name' => 'One Cafe',
+                'user_id' => 1,
                 'username' => 'onecafe',
                 'domain' => 'onecafe.tenancy.test',
                 'status' => TenantStatusEnum::ACTIVE,
@@ -28,6 +29,7 @@ class TenantSeeder extends Seeder
             ],
             [
                 'name' => 'Two Cafe',
+                'user_id' => 1,
                 'username' => 'twocafe',
                 'domain' => 'twocafe.tenancy.test',
                 'status' => TenantStatusEnum::ACTIVE,
@@ -39,6 +41,7 @@ class TenantSeeder extends Seeder
             [
                 'name' => 'One Institute',
                 'username' => 'oneins',
+                'user_id' => 1,
                 'domain' => 'oneins.tenancy.test',
                 'status' => TenantStatusEnum::ACTIVE,
                 'business_id' => 2,
@@ -49,6 +52,7 @@ class TenantSeeder extends Seeder
             [
                 'name' => 'Two Institute',
                 'username' => 'twoins',
+                'user_id' => 1,
                 'domain' => 'twoins.tenancy.test',
                 'status' => TenantStatusEnum::ACTIVE,
                 'business_id' => 2,

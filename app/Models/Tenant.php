@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\TenantStatusEnum;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Tenant extends Model
@@ -19,8 +20,12 @@ class Tenant extends Model
         return $this->belongsTo(Business::class);
     }
 
-    public function theme()
+    protected static function booted()
     {
-        return $this->belongsTo(Theme::class, 'business_type_id');
+        static::addGlobalScope('tenant', function (Builder $builder) {
+            if ($user = auth()->user()) {
+                $builder->where('user_id', $user->id);
+            }
+        });
     }
 }
