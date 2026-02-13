@@ -18,42 +18,42 @@ class TenantSeeder extends Seeder
         $tenants = [
             [
                 'name' => 'One Cafe',
+                'username' => 'onecafe',
                 'domain' => 'onecafe.tenancy.test',
                 'status' => TenantStatusEnum::ACTIVE,
                 'business_id' => 1,
                 'db_name' => 'mytenant1',
-                'db_username' => 'root',
-                'db_password' => 'password',
+                'password' => 'password',
                 'theme_id' => 1
             ],
             [
                 'name' => 'Two Cafe',
+                'username' => 'twocafe',
                 'domain' => 'twocafe.tenancy.test',
                 'status' => TenantStatusEnum::ACTIVE,
                 'business_id' => 1,
                 'db_name' => 'mytenant2',
-                'db_username' => 'root',
-                'db_password' => 'password',
+                'password' => 'password',
                 'theme_id' => 2
             ],
             [
                 'name' => 'One Institute',
+                'username' => 'oneins',
                 'domain' => 'oneins.tenancy.test',
                 'status' => TenantStatusEnum::ACTIVE,
                 'business_id' => 2,
                 'db_name' => 'mytenant_3',
-                'db_username' => 'root',
-                'db_password' => 'password',
+                'password' => 'password',
                 'theme_id' => 3
             ],
             [
                 'name' => 'Two Institute',
+                'username' => 'twoins',
                 'domain' => 'twoins.tenancy.test',
                 'status' => TenantStatusEnum::ACTIVE,
                 'business_id' => 2,
                 'db_name' => 'mytenant_3',
-                'db_username' => 'root',
-                'db_password' => 'password',
+                'password' => 'password',
                 'theme_id' => 4
             ]
         ];

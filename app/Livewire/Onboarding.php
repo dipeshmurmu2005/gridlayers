@@ -155,10 +155,10 @@ class Onboarding extends Component
 
     public function switchToCheckout()
     {
-        $onboardDataId = OnboardData::where('user_id', auth()->user()->id)->first()->id;
+        $onboardDataId = OnboardData::where('user_id', auth()->user()->id)->first();
         if ($onboardDataId) {
             $this->validate([
-                'fullsubdomain' => 'nullable|required_without:custom_domain|unique:tenants,domain|unique:onboard_data,domain,' . $onboardDataId,
+                'fullsubdomain' => 'nullable|required_without:custom_domain|unique:tenants,domain|unique:onboard_data,domain,' . $onboardDataId->id,
             ]);
         }
         $this->validate([
@@ -174,11 +174,11 @@ class Onboarding extends Component
         $this->validate($this->firstStepRules);
         $this->validate($this->secondStepRules);
 
-        $onboardDataId = OnboardData::where('user_id', auth()->user()->id)->first()->id;
+        $onboardDataId = OnboardData::where('user_id', auth()->user()->id)->first();
 
         if ($onboardDataId) {
             $this->validate([
-                'fullsubdomain' => 'nullable|required_without:custom_domain|unique:tenants,domain|unique:onboard_data,domain,' . $onboardDataId,
+                'fullsubdomain' => 'nullable|required_without:custom_domain|unique:tenants,domain|unique:onboard_data,domain,' . $onboardDataId->id,
             ]);
         }
 

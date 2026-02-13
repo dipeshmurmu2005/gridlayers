@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\DB;
 
 class DatabaseResolver
 {
-
     public static function connectDB()
     {
         $tenant = app('tenant');

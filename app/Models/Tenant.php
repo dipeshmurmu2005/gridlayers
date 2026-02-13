@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Tenant extends Model
 {
     protected $guarded = [];
+
     protected $casts = [
-        'status' => TenantStatusEnum::class
+        'status' => TenantStatusEnum::class,
+        'password' => 'hashed',
     ];
 
     public function Business()

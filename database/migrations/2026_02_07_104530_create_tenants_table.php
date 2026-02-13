@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('tenants', function (Blueprint $table) {
             $table->id();
+            $table->string('username')->unique();
+            $table->string('password');
             $table->string('name');
             $table->string('domain');
             $table->string('status');
             $table->unsignedBigInteger('business_id');
             $table->unsignedBigInteger('theme_id');
 
-            $table->string('db_name');
-            $table->string('db_username');
-            $table->string('db_password');
+            $table->string('db_name')->nullable();
             $table->string('db_host')->default('127.0.0.1');
             $table->timestamps();
         });

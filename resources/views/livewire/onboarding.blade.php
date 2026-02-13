@@ -309,7 +309,8 @@
                         </div>
                         <div class="flex justify-center items-center gap-2">
                             <button class="btn btn-primary h-12" wire:click="onboard()">Checkout</button>
-                            <button class="btn bg-black/4 h-12" wire:click="onboard()">Start Free Trial</button>
+                            <button class="btn bg-black/4 h-12" wire:click="startFreeTrial()">Start Free
+                                Trial</button>
                         </div>
                     </div>
                 </div>
