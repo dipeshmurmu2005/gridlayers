@@ -142,7 +142,6 @@
                 @endif
                 @if ($this->activeStep == 2)
                     <div class="flex flex-col items-center">
-                        {{ $errors }}
                         <div class="grid grid-cols-4 gap-5">
                             @foreach ($this->themes as $theme)
                                 <div>
