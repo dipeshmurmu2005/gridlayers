@@ -19,12 +19,17 @@ return new class extends Migration
             $table->unsignedBigInteger('plan_id');
             $table->string('billing_cycle');
             $table->decimal('subtotal', 12, 2);
-            $table->decimal('paid_amount', 12, 2);
-            $table->decimal('discount_amount', 12, 2);
+            $table->decimal('paid_amount', 12, 2)->nullable();
+            $table->decimal('discount_amount', 12, 2)->nullable();
             $table->decimal('total_amount', 12, 2);
+            $table->string('payment_provider')->nullable();
+            $table->string('provider_subscription_id')->nullable();
             $table->string('status');
-            $table->timestamp('renewed_at');
-            $table->timestamp('expires_at');
+            $table->timestamp('cancelled_at')->nullable();
+            $table->timestamp('renewed_at')->nullable();
+            $table->timestamp('expires_at')->nullable();
+            $table->timestamp('grace_period_ends_at')->nullable();
+            $table->json('metadata')->nullable();
             $table->timestamps();
         });
     }
