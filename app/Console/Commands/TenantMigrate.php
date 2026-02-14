@@ -32,8 +32,8 @@ class TenantMigrate extends Command
         foreach ($tenants as $tenant) {
             config([
                 'database.connections.tenant.database' => $tenant->db_name,
-                'database.connections.tenant.username' => $tenant->db_username,
-                'database.connections.tenant.password' => $tenant->db_password,
+                'database.connections.tenant.username' => 'root',
+                'database.connections.tenant.password' => 'password',
             ]);
             $business_name = strtolower($tenant->Business->name);
 
