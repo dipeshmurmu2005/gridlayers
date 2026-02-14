@@ -22,6 +22,11 @@ class BusinessSeeder extends Seeder
                 'name' => 'Institute',
                 'slug' => 'institute',
                 'max_limit' => 3,
+            ],
+            [
+                'name' => 'Tours',
+                'slug' => 'tours',
+                'max_limit' => 3,
             ]
         ];
         foreach ($business_types as $business_type) {

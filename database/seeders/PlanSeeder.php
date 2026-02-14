@@ -33,6 +33,27 @@ class PlanSeeder extends Seeder
                 'slug' => 'cafe-premium',
                 'price_monthly' => 200,
                 'price_yearly' => 600,
+            ],
+            [
+                'business_id' => 3,
+                'name' => 'Starter',
+                'slug' => 'tours-starter',
+                'price_monthly' => 200,
+                'price_yearly' => 600,
+            ],
+            [
+                'business_id' => 3,
+                'name' => 'Growth',
+                'slug' => 'tours-growth',
+                'price_monthly' => 200,
+                'price_yearly' => 600,
+            ],
+            [
+                'business_id' => 3,
+                'name' => 'Premium',
+                'slug' => 'tours-premium',
+                'price_monthly' => 200,
+                'price_yearly' => 600,
             ]
         ];
 

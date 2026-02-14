@@ -38,6 +38,18 @@ class ThemeSeeder extends Seeder
                 'name' => 'Modern',
                 'slug' => 'institute-modern',
                 'status' => ThemeStatusEnum::ACTIVE
+            ],
+            [
+                'business_id' => 3,
+                'name' => 'Classic',
+                'slug' => 'tours-classic',
+                'status' => ThemeStatusEnum::ACTIVE
+            ],
+            [
+                'business_id' => 3,
+                'name' => 'Modern',
+                'slug' => 'tours-modern',
+                'status' => ThemeStatusEnum::ACTIVE
             ]
         ];
         foreach ($themes as $theme) {

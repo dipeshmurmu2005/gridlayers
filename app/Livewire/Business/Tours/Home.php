@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Business\Cafe;
+namespace App\Livewire\Business\Tours;
 
 use App\Services\ThemeResolver;
 use Livewire\Component;
@@ -12,10 +12,5 @@ class Home extends Component
         $themeResolver = ThemeResolver::page('home');
         return view($themeResolver)
             ->layout(ThemeResolver::layout('app'));
-    }
-
-    public function callMe()
-    {
-        dd('d');
     }
 }
