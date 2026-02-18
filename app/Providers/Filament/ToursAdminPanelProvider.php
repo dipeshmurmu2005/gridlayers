@@ -36,6 +36,7 @@ class ToursAdminPanelProvider extends PanelProvider
             ->pages([
                 Dashboard::class,
             ])
+            ->topNavigation(true)
             ->discoverWidgets(in: app_path('Filament/ToursAdmin/Widgets'), for: 'App\Filament\ToursAdmin\Widgets')
             ->widgets([
                 AccountWidget::class,

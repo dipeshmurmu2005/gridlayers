@@ -12,7 +12,7 @@ class DatabaseResolver
         config([
             'database.connections.tenant' => [
                 'driver'   => 'mysql',
-                'host'     => $tenant->db_host,
+                'host'     => env('DB_HOST'),
                 'database' => $tenant->db_name,
                 'username' => 'root',
                 'password' => 'password',

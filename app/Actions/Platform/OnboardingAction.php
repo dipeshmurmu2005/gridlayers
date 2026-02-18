@@ -61,6 +61,7 @@ class OnboardingAction
 
     public function createDatabase(string $databaseName): void
     {
+        DB::statement("DROP DATABASE IF EXISTS `$databaseName`");
         DB::statement("CREATE DATABASE IF NOT EXISTS `$databaseName`");
     }
 
@@ -68,7 +69,8 @@ class OnboardingAction
     {
         $tenantDatabaseService = new TenantDatabaseService();
         $migrationPath = $tenantDatabaseService->getMigrationPath($this->tenant);
-        $tenantDatabaseService->migrateDatabase($this->tenant->db_name, $migrationPath);
+        info('tenant', [$this->tenant->id, $this->tenant->db_name]);
+        $tenantDatabaseService->migrateFreshDatabase($this->tenant->db_name, $migrationPath);
     }
 
     public function createSubscription()

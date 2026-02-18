@@ -24,7 +24,8 @@ return new class extends Migration
             $table->unsignedBigInteger('theme_id');
 
             $table->string('db_name')->nullable();
-            $table->string('db_host')->default('127.0.0.1');
+
+            $table->boolean('is_seeded')->default(false);
             $table->timestamps();
         });
     }

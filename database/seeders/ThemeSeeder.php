@@ -17,36 +17,12 @@ class ThemeSeeder extends Seeder
         $themes = [
             [
                 'business_id' => 1,
-                'name' => 'Modern',
-                'slug' => 'cafe-modern',
-                'status' => ThemeStatusEnum::ACTIVE
-            ],
-            [
-                'business_id' => 1,
-                'name' => 'Classic',
-                'slug' => 'cafe-classic',
-                'status' => ThemeStatusEnum::ACTIVE
-            ],
-            [
-                'business_id' => 2,
-                'name' => 'Classic',
-                'slug' => 'institute-classic',
-                'status' => ThemeStatusEnum::ACTIVE
-            ],
-            [
-                'business_id' => 2,
-                'name' => 'Modern',
-                'slug' => 'institute-modern',
-                'status' => ThemeStatusEnum::ACTIVE
-            ],
-            [
-                'business_id' => 3,
                 'name' => 'Classic',
                 'slug' => 'tours-classic',
                 'status' => ThemeStatusEnum::ACTIVE
             ],
             [
-                'business_id' => 3,
+                'business_id' => 1,
                 'name' => 'Modern',
                 'slug' => 'tours-modern',
                 'status' => ThemeStatusEnum::ACTIVE

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PackageItinerary extends Model
 {
+    protected $connection = 'tenant';
+
     protected $guarded = [];
 
     public function package()

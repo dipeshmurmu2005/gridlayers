@@ -182,7 +182,7 @@
                     </div>
                     <div class="mt-5 text-sm font-medium">
                         <span>Rs</span>
-                        <span class="text-5xl font-black">499</span>
+                        <span class="text-5xl font-black">{{ floatval($plan->price_monthly) }}</span>
                         <span>/mo</span>
                     </div>
                     <div class="mt-5 space-y-4 text-xs">

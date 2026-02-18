@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Benefit extends Model
 {
+    protected $connection = 'tenant';
+
     protected $guarded = [];
 }

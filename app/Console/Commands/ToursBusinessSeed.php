@@ -42,12 +42,26 @@ class ToursBusinessSeed extends Command
             $business_name = strtolower($tenant->Business->name);
 
             DB::purge('tenant');
+            if ($tenant->is_seeded) {
+                $this->call('migrate:fresh', [
+                    '--database' => "tenant",
+                    '--path' => 'database/migrations/tenant/tours',
+                    '--force' => true,
+                ]);
+                $this->info('Migrating completed successfully!');
+            }
+
+            DB::reconnect('tenant');
 
             $this->call('db:seed', [
                 '--database' => "tenant",
                 '--class' => DatabaseSeeder::class,
                 '--force' => true,
             ]);
+
+            $tenant->is_seeded = true;
+            $tenant->save();
+            $this->info('Seeding completed successfully!');
         }
     }
 }

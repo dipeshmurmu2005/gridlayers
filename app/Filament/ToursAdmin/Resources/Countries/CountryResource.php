@@ -18,7 +18,7 @@ class CountryResource extends Resource
 {
     protected static ?string $model = Country::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Flag;
 
     public static function form(Schema $schema): Schema
     {
@@ -41,8 +41,6 @@ class CountryResource extends Resource
     {
         return [
             'index' => ListCountries::route('/'),
-            'create' => CreateCountry::route('/create'),
-            'edit' => EditCountry::route('/{record}/edit'),
         ];
     }
 }

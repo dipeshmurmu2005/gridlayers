@@ -14,16 +14,6 @@ class BusinessSeeder extends Seeder
     {
         $business_types = [
             [
-                'name' => 'Cafe',
-                'slug' => 'cafe',
-                'max_limit' => 3,
-            ],
-            [
-                'name' => 'Institute',
-                'slug' => 'institute',
-                'max_limit' => 3,
-            ],
-            [
                 'name' => 'Tours',
                 'slug' => 'tours',
                 'max_limit' => 3,

@@ -11,6 +11,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Support\Enums\Width;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 
 class CountriesTable
@@ -23,21 +24,12 @@ class CountriesTable
                 TextColumn::make('name'),
                 TextColumn::make('page_title'),
                 TextColumn::make('slug'),
-                TextColumn::make('status')
-                    ->color(fn($record) => $record->status ? 'success' : 'danger')
-                    ->badge()
-                    ->formatStateUsing(fn($record) => $record->status ? 'Active' : 'Inactive'),
+                ToggleColumn::make('status'),
             ])
             ->filters([
                 //
             ])
             ->recordActions([
-                Action::make('Change Status')->action(function ($record) {
-                    $record->status = !$record->status;
-                    $record->save();
-                })
-                    ->button()
-                    ->color(fn($record) => $record->status ? 'danger' : 'success'),
                 EditAction::make()->schema([
                     TextInput::make('name')->required(),
                     TextInput::make('page_title')->required()->label('Page Title'),
