@@ -16,8 +16,8 @@ new class extends Component {
     <div class="{{ url()->current() == route('home') ? 'p-8' : 'py-5' }} justify-between items-center hidden md:flex">
         <a href="{{ route('home') }}">
             <div class="logo lg:h-10 2xl:h-12 w-fit {{ url()->current() == route('home') ? 'invert' : '' }}">
-                {{-- <img src="{{ settings('logo') ? Storage::url(settings('logo')) : null }}" alt=""
-                    class="h-full w-full object-contain"> --}}
+                <img src="{{ app('setting')->logo ? Storage::url(app('setting')->logo) : null }}" alt=""
+                    class="h-full w-full object-contain">
             </div>
         </a>
         <div
@@ -38,8 +38,8 @@ new class extends Component {
         <div class="p-5 flex justify-between items-center md:hidden">
             <a href="{{ route('home') }}">
                 <div class="logo h-10 w-fit {{ url()->current() == route('home') ? 'invert' : '' }}">
-                    {{-- <img src="{{ settings('logo') ? Storage::url(settings('logo')) : null }}" alt=""
-                        class="h-full w-full object-contain"> --}}
+                    <img src="{{ app('setting')->logo ? Storage::url(app('setting')->logo) : null }}" alt=""
+                        class="h-full w-full object-contain">
                 </div>
             </a>
             <button @click="mobile_drawer.checked=true" class="btn btn-square rounded-lg"><x-heroicon-m-bars-3

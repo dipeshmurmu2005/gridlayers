@@ -7,6 +7,7 @@ use App\Enums\TenantStatusEnum;
 use App\Services\DatabaseResolver;
 use App\Services\RouteResolver;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
@@ -24,7 +25,9 @@ class RouteServiceProvider extends ServiceProvider
             if ($tenant) {
 
                 app()->instance('tenant', $tenant);
-
+                $host = request()->getHost();
+                $scheme = request()->getScheme();
+                Config::set('app.url', $scheme . '://' . $host);
                 $routesFile = RouteResolver::routesPath();
 
                 if (is_file($routesFile)) {

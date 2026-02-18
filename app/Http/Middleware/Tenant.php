@@ -28,11 +28,10 @@ class Tenant
             $subscription = new SubscriptionChecker();
             $subscription->hasActiveSubscription($tenant);
             app()->instance('tenant', $tenant);
-            $settingService = new SettingService();
-            $setting = $settingService->getSettings();
-
             $databaseResolver = new DatabaseResolver();
             $databaseResolver->connectDB();
+            $settingService = new SettingService();
+            $setting = $settingService->getSettings();
             if ($setting) {
                 app()->instance('setting', $setting);
             }

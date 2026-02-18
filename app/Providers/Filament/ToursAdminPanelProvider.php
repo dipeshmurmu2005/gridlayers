@@ -29,7 +29,19 @@ class ToursAdminPanelProvider extends PanelProvider
             ->path('tours-admin')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => [
+                    50  => 'oklch(0.97 0.05 240)',
+                    100 => 'oklch(0.93 0.10 240)',
+                    200 => 'oklch(0.85 0.18 240)',
+                    300 => 'oklch(0.75 0.24 240)',
+                    400 => 'oklch(0.65 0.28 240)',
+                    500 => 'oklch(0.55 0.30 240)',
+                    600 => 'oklch(0.48 0.27 240)',
+                    700 => 'oklch(0.40 0.23 240)',
+                    800 => 'oklch(0.33 0.19 240)',
+                    900 => 'oklch(0.26 0.15 240)',
+                    950 => 'oklch(0.18 0.10 240)',
+                ],
             ])
             ->discoverResources(in: app_path('Filament/ToursAdmin/Resources'), for: 'App\Filament\ToursAdmin\Resources')
             ->discoverPages(in: app_path('Filament/ToursAdmin/Pages'), for: 'App\Filament\ToursAdmin\Pages')
