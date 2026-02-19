@@ -24,8 +24,8 @@ new class extends Component {
     <div class="grid md:grid-cols-8 gap-8 px-5 md:px-32 py-10 2xl:text-base lg:text-sm">
         <div class="md:col-span-4">
             <div class="logo h-10 lg:h-10 2xl:h-18 w-fit">
-                {{-- <img src="{{ settings('logo') ? Storage::url(settings('logo')) : null }}" alt=""
-                    class="h-full w-full object-contain"> --}}
+                <img src="{{ app('setting')->logo ? Storage::url(app('setting')->logo) : null }}" alt=""
+                    class="h-full w-full object-contain">
             </div>
             <div class="mt-8 flex gap-2">
                 {{-- @if (settings('social_links'))
@@ -76,6 +76,6 @@ new class extends Component {
     <div
         class="text-xs text-center md:text-left md:px-32 border-t border-gray-100 bg-white px-5 flex flex-col gap-5 md:flex-row md:justify-between py-5 lg:text-xs 2xl:text-sm font-semibold text-black/50">
         <span>&copy; Copyright 2024 Franco Anil . All Rights Reserved</span>
-        <span>Made with ❤ By Dipesh Murmu</span>
+        <span>Powered By <span class="text-primary">Grid Layers</span></span>
     </div>
 </div>

@@ -1,7 +1,7 @@
 <?php
 
 use Livewire\Component;
-use App\Models\Country;
+use App\Models\Business\Tours\Country;
 new class extends Component {
     public $countries;
 

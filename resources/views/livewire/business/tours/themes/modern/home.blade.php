@@ -17,10 +17,10 @@ new class extends Component {
     @section('seo')
         {{-- <x-seo :seo="$this->page" /> --}}
     @endsection
-    <x-business.tours.modern.home.hero />
-    <livewire:business.tours.modern.home.featured-section />
-    {{-- <livewire:business.tours.modern.home.deals-section />
-    <livewire:business.tours.modern.home.testimonial-section />
-    <livewire:business.tours.modern.home.benefits-section />
-    <livewire:business.tours.modern.home.featured-countries /> --}}
+    <x-business.tours.themes.modern.home.hero />
+    <livewire:business.tours.themes.modern.home.featured-section />
+    <livewire:business.tours.themes.modern.home.deals-section />
+    <livewire:business.tours.themes.modern.home.testimonial-section />
+    <livewire:business.tours.themes.modern.home.benefits-section />
+    <livewire:business.tours.themes.modern.home.featured-countries />
 </div>

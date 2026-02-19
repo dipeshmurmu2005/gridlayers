@@ -34,7 +34,7 @@ new class extends Component {
             </div>
             <div class="grid-cols-4 pt-10 gap-5 hidden md:grid">
                 @foreach ($this->featured_destinations as $destination)
-                    <x-business.tours.modern.destination :destination="$destination" />
+                    <x-business.tours.themes.modern.destination :destination="$destination" />
                 @endforeach
             </div>
             <div class="mt-10 md:hidden" x-data="{

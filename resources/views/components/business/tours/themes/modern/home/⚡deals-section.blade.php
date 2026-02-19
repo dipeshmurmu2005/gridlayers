@@ -1,8 +1,8 @@
 <?php
 
 use Livewire\Component;
-use App\Models\Package;
-use App\Enums\PackageStatusEnum;
+use App\Models\Business\Tours\Package;
+use App\Enums\Business\Tours\PackageStatusEnum;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Url;
 
@@ -40,7 +40,7 @@ new class extends Component {
             </div>
             <div class="grid-cols-4 pt-10 gap-5 space-y-10 hidden md:grid">
                 @foreach ($this->packages as $package)
-                    <x-package :package="$package" />
+                    <x-business.tours.themes.modern.package :package="$package" />
                 @endforeach
             </div>
             <div class="pt-10 md:hidden" x-data="{
@@ -55,7 +55,7 @@ new class extends Component {
                     <div class="swiper-wrapper">
                         @foreach ($this->packages as $package)
                             <div class="swiper-slide">
-                                <x-package :package="$package" />
+                                <x-business.tours.themes.modern.package :package="$package" />
                             </div>
                         @endforeach
                     </div>

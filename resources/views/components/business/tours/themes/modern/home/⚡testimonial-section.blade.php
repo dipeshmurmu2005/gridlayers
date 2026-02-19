@@ -1,7 +1,7 @@
 <?php
 
 use Livewire\Component;
-use App\Models\Testimonial;
+use App\Models\Business\Tours\Testimonial;
 
 new class extends Component {
     public $testimonials;

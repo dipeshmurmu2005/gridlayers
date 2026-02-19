@@ -18,7 +18,7 @@
 </head>
 
 <body class="font-primary">
-    <livewire:business.tours.modern.nav-wire />
+    <livewire:business.tours.themes.modern.nav-wire />
     {{ $slot }}
     <div class="fixed right-10 bottom-10">
         {{-- @if (settings('whatsapp_credentials') ? ['whatsapp_number'] : false)
@@ -27,7 +27,7 @@
             </a>
         @endif --}}
     </div>
-    <livewire:business.tours.modern.footer-wire />
+    <livewire:business.tours.themes.modern.footer-wire />
     @livewireScripts
 </body>
 
