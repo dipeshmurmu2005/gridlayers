@@ -10,7 +10,22 @@
                         class="h-full w-full object-contain">
                 </div>
             </div>
-            <div class="md:px-5 h-10 flex items-center w-full md:w-auto">
+            <div class="md:px-5 h-10 flex items-center w-full md:w-auto gap-5">
+                <div>
+                    <x-heroicon-o-calendar class="h-6 w-6 text-black/40" />
+                </div>
+                <select name="type" id=""
+                    class="cursor-pointer h-full w-full md:w-auto 2xl:text-base lg:text-sm" wire:model.live="type">
+                    <option value="" selected>Select Month</option>
+                    @foreach ($this->package_types as $type)
+                        <option value="{{ $type->value }}">{{ $type->getLabel() }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="md:px-5 h-10 flex items-center w-full md:w-auto gap-4">
+                <div>
+                    <x-heroicon-o-map class="h-6 w-6 text-black/40" />
+                </div>
                 <select name="type" id=""
                     class="cursor-pointer h-full w-full md:w-auto 2xl:text-base lg:text-sm" wire:model.live="type">
                     <option value="" selected>Travel Type</option>
@@ -19,8 +34,11 @@
                     @endforeach
                 </select>
             </div>
-            <div class="md:px-5 h-10 flex items-center w-full md:w-120">
-                <input type="text" class="input rounded-xl w-full h-12" placeholder="Search" name="query"
+            <div class="md:px-5 h-10 flex items-center w-full md:w-80 gap-4">
+                <div>
+                    <x-heroicon-o-map-pin class="h-6 w-6 text-black/40" />
+                </div>
+                <input type="text" class="rounded-xl w-full h-12" placeholder="Where to ?" name="query"
                     wire:model="query">
             </div>
             <div class="md:pl-5 h-full">

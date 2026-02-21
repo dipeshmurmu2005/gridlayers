@@ -24,21 +24,8 @@ new class extends Component {
 ?>
 <div>
     @if ($this->packages->count() > 0)
-        <div class="lg:px-24 2xl:px-32 pt-32">
-            <div class="px-5 md:px-0 flex justify-center text-center">
-                <h2
-                    class="text-2xl lg:text-3xl 2xl:text-4xl md:w-[40%] leading-snug font-light bg-linear-to-r from-primary to-black bg-clip-text">
-                    <span class="font-black text-transparent">Special Offers / Limited Deals </span> For
-                    <span class="font-black text-transparent">Travelers</span>
-                </h2>
-            </div>
-            <div class="flex justify-center items-center pt-5 gap-2 flex-wrap">
-                @foreach ($this->package_categories as $category)
-                    <button
-                        class="btn btn-outline rounded-full border-black/10 text-black/70 font-medium">{{ $category->getLabel() }}</button>
-                @endforeach
-            </div>
-            <div class="grid-cols-4 pt-10 gap-5 space-y-10 hidden md:grid">
+        <div class="lg:px-24 2xl:px-32 pt-5">
+            <div class="grid-cols-5 pt-10 gap-8 space-y-8 hidden md:grid">
                 @foreach ($this->packages as $package)
                     <x-business.tours.themes.modern.package :package="$package" />
                 @endforeach

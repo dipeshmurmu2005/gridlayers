@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="md:col-span-6">
-            <div class="grid md:grid-cols-3 gap-5">
+            <div class="grid md:grid-cols-4 gap-8">
                 @forelse ($this->packages as $package)
                     <x-business.tours.themes.modern.package :package="$package" />
                 @empty

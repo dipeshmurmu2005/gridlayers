@@ -18,8 +18,8 @@ new class extends Component {
         <x-business.tours.themes.modern.seo :seo="$this->page" />
     @endsection
     <x-business.tours.themes.modern.home.hero />
-    <livewire:business.tours.themes.modern.home.featured-section />
     <livewire:business.tours.themes.modern.home.deals-section />
+    <livewire:business.tours.themes.modern.home.featured-section />
     <livewire:business.tours.themes.modern.home.testimonial-section />
     <livewire:business.tours.themes.modern.home.benefits-section />
     <livewire:business.tours.themes.modern.home.featured-countries />
