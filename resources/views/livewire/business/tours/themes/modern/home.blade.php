@@ -15,7 +15,7 @@ new class extends Component {
 
 <div>
     @section('seo')
-        {{-- <x-seo :seo="$this->page" /> --}}
+        <x-business.tours.themes.modern.seo :seo="$this->page" />
     @endsection
     <x-business.tours.themes.modern.home.hero />
     <livewire:business.tours.themes.modern.home.featured-section />

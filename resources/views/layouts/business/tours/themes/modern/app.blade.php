@@ -17,7 +17,7 @@
     @yield('seo')
 </head>
 
-<body class="font-primary">
+<body class="font-primary" x-data x-cloak>
     <livewire:business.tours.themes.modern.nav-wire />
     {{ $slot }}
     <div class="fixed right-10 bottom-10">

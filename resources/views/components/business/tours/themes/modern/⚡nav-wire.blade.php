@@ -62,7 +62,7 @@ new class extends Component {
     </div>
     @if (request()->routeIs('explore'))
         <div class="justify-center">
-            <livewire:search-filter />
+            <livewire:business.tours.search-filter />
         </div>
     @endif
 </div>
